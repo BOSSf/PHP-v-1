@@ -42,11 +42,11 @@
 										'id'=>$oAbonne->getId()
 									) 
 							)?>">Edit</a>
-			| 
-<a href="<?php echo $this->getLink('abonne::delete',array(
+<!--			|
+<a href="<?php /*echo $this->getLink('abonne::delete',array(
 										'id'=>$oAbonne->getId()
 									) 
-							)?>">Delete</a>
+							)*/?>">Delete</a>-->
 			| 
 <a href="<?php echo $this->getLink('abonne::show',array(
 										'id'=>$oAbonne->getId()
@@ -65,5 +65,5 @@
 	<?php endif;?>
 </table>
 
-<p><a href="<?php echo $this->getLink('abonne::new') ?>">New</a></p>
-			
+<!--<p><a href="--><?php //echo $this->getLink('abonne::new') ?><!--">New</a></p>-->
+

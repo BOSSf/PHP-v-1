@@ -4,7 +4,7 @@ Class module_menu extends abstract_moduleembedded{
 	public function _index(){
 		
 		$tLink=array(
-			'Abonne' => 'abonne::index',
+			'Profil' => 'abonne::index',
 'Auteur' => 'auteur::index',
 'Emprunte' => 'emprunte::index',
 'Livre' => 'livre::index',

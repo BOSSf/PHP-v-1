@@ -1,19 +1,19 @@
 <?php
-class model_abonne extends abstract_model{
+class model_reservation extends abstract_model{
 	
-	protected $sClassRow='row_abonne';
+	protected $sClassRow='row_reservation';
 	
-	protected $sTable='abonne';
+	protected $sTable='reservation';
 	protected $sConfig='user';
 	
-	protected $tId=array('Matricule_Abonne');
+	protected $tId=array('Numero_Reservation');
 
 	public static function getInstance(){
 		return self::_getInstance(__CLASS__);
 	}
 
 	public function findById($uId){
-		return $this->findOne('SELECT * FROM '.$this->sTable.' WHERE Matricule_Abonne=?',$uId );
+		return $this->findOne('SELECT * FROM '.$this->sTable.' WHERE Numero_Reservation=?',$uId );
 	}
 	public function findAll(){
 		return $this->findMany('SELECT * FROM '.$this->sTable);
@@ -25,49 +25,19 @@ class model_abonne extends abstract_model{
 		$tSelect=array();
 		if($tab){
 		foreach($tab as $oRow){
-			$tSelect[ $oRow->Matricule_Abonne ]=$oRow->Matricule_Abonne;
+			$tSelect[ $oRow->Numero_Reservation ]=$oRow->Numero_Reservation;
 		}
 		}
 		return $tSelect;
 	}
 			
 	
-	public function save($oAbonne){
-			$this->execute('INSERT INTO '.$this->sTable.' 
-				(Nom_Abonne,Prenom_Abonne,Adresse_Abonne,Numero_tel_Abonne,Date_Naissance_Abonne,Etat_Abonne,Type_Abonne) 
-				VALUES (?,?,?,?,?,?,?) 
-				ON DUPLICATE KEY 
-					UPDATE Nom_Abonne=?,Prenom_Abonne=?,Adresse_Abonne=?,Numero_tel_Abonne=?,Date_Naissance_Abonne=?,Etat_Abonne=?,Type_Abonne=?  ',
-			array($oAbonne->Nom_Abonne,$oAbonne->Prenom_Abonne,$oAbonne->Adresse_Abonne,$oAbonne->Numero_tel_Abonne,$oAbonne->Date_Naissance_Abonne,$oAbonne->Etat_Abonne,$oAbonne->Type_Abonne,$oAbonne->Nom_Abonne,$oAbonne->Prenom_Abonne,$oAbonne->Adresse_Abonne,$oAbonne->Numero_tel_Abonne,$oAbonne->Date_Naissance_Abonne,$oAbonne->Etat_Abonne,$oAbonne->Type_Abonne));
-	}
-    public function getListAccount(){
-
-        $tAccount=$this->findAll();
-
-        $tLoginPassAccount=array();
-
-        if($tAccount){
-            foreach($tAccount as $oAccount){
-                //on cree ici un tableau indexe par nom d'utilisateur et mot de pase
-                $tLoginPassAccount[$oAccount->Nom_Abonne][$oAccount->Matricule_Abonne]=$oAccount;
-            }
-        }
-
-        return $tLoginPassAccount;
-
-    }
-
-    public function hashPassword($sPassword){
-        //utiliser ici la methode de votre choix pour hasher votre mot de passe
-        return sha1('2votreSelAchanger2'.$sPassword);
-    }
-			
 
 }
 
-class row_abonne extends abstract_row{
+class row_reservation extends abstract_row{
 	
-	protected $sClassModel='model_abonne';
+	protected $sClassModel='model_reservation';
 	
 	/*exemple jointure 
 	public function findAuteur(){
@@ -106,7 +76,7 @@ class row_abonne extends abstract_row{
 		if(!$this->isValid()){
 			return false;
 		}
-		model_abonne::getInstance()->save($this);
+		parent::save();
 		return true;
 	}
 

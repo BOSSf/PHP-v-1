@@ -51,7 +51,9 @@
 		<td>
 			<p>
 				<a href="<?php echo $this->getLink('livre::list')?>">Retour</a>
+                <a href="<?php echo $this->getLink('reservation::new')?>">Reserver</a>
 			</p>
+
 		</td>
 	</tr>
 </table>

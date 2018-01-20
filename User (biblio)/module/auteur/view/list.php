@@ -18,16 +18,16 @@
 			<td>
 				
 				
-<a href="<?php echo $this->getLink('auteur::edit',array(
+<!--<a href="<?php /*echo $this->getLink('auteur::edit',array(
 										'id'=>$oAuteur->getId()
 									) 
-							)?>">Edit</a>
+							)*/?>">Edit</a>
 			| 
-<a href="<?php echo $this->getLink('auteur::delete',array(
+<a href="<?php /*echo $this->getLink('auteur::delete',array(
 										'id'=>$oAuteur->getId()
 									) 
-							)?>">Delete</a>
-			| 
+							)*/?>">Delete</a>
+			| -->
 <a href="<?php echo $this->getLink('auteur::show',array(
 										'id'=>$oAuteur->getId()
 									) 
@@ -45,5 +45,5 @@
 	<?php endif;?>
 </table>
 
-<p><a href="<?php echo $this->getLink('auteur::new') ?>">New</a></p>
+<!--<p><a href="--><?php //echo $this->getLink('auteur::new') ?><!--">New</a></p>-->
 			
