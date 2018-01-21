@@ -14,6 +14,10 @@
 </thead>
 <tbody>
 <?php
+if(!isset($_SESSION))
+{
+    session_start();
+}$_SESSION['Matricule_Abonne']=$Matricule_Abonne;
 foreach($res as $obj){
 ?>
 <tr>

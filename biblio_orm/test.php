@@ -1,13 +1,10 @@
 <?php
-if(!isset($_SESSION))
-{
-    session_start();
-}include "include/connexion.php";
-$controller = "livre";
-$action="liste";
+include "include/connexion.php";
+$controller = "reservation";
+$action="ajout1";
 
 if (isset($_REQUEST['controller'])){
-$controllers = $_REQUEST['controller'];
+    $controllers = $_REQUEST['controller'];
 }
 
 if (isset($_REQUEST['action'])){

@@ -1,4 +1,4 @@
-<table id="example1" class="table table-bordered table-striped">
+<table id="example1" class="table table-bordered table-striped" >
  <thead>
 <tr>
 	<th>Code_Livre</th>
@@ -16,6 +16,10 @@
 </thead>
 <tbody>
 <?php
+if(!isset($_SESSION))
+{
+    session_start();
+}$_SESSION['Code_Livre']=$Code_Livre;
 foreach($res as $obj){
 ?>
 <tr>
@@ -30,8 +34,10 @@ foreach($res as $obj){
 	<td><?php echo $obj->Id_Auteur;?></td>
 	<td><?php echo $obj->image_livre;?></td>
 <td><a href="index.php?controller=livre&action=delete&Code_Livre=<?php echo $obj->Code_Livre;?>" onclick="if(confirm('etes vous sure de supprimer?')) return true; else return false;">supp.</a>
-| <a href="index.php?controller=livre&action=edit1&Code_Livre=<?php echo $obj->Code_Livre;?>">modif.</a></td></tr>
-<?php 
+| <a href="index.php?controller=livre&action=edit1&Code_Livre=<?php echo $obj->Code_Livre;?>">modif.</a></td>
+    <a href="test.php?Code_Livre=<?php echo $obj->Code_Livre;?>&Stock_Livre=<?php echo$obj->Stock_Livre ?>&" >reservation.</a></td></tr>
+<?php
+
 }
 ?>
 <script>

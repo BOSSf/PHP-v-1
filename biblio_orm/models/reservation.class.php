@@ -47,6 +47,8 @@ $cnx->exec("delete from reservation where Numero_Reservation='".$this->Numero_Re
 $this->redirect("index.php?controller=reservation&action=liste");
 
 }
+
+
 }
 
 ?>

@@ -58,6 +58,9 @@ case 'liste': $res=$inst->liste($cnx);
 	
 	case 'delete': $inst->delete($cnx);
 	break;
+
+    case 'stock':$inst->liststock($cnx);
+        break;
 	
 }
 ?>

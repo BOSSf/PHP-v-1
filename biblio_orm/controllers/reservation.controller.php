@@ -1,5 +1,6 @@
 <?php
 include "models/reservation.class.php";
+
 //initialisation des attributs de l’objet voiture
 $Numero_Reservation='';
 $Date_Reservation='';
@@ -23,7 +24,8 @@ if(isset($_REQUEST['Code_Livre']))
 $inst=new reservation($Numero_Reservation,$Date_Reservation,$Etat,$Matricule_Abonne,$Code_Livre);
 
 switch($action){
-case 'ajout1' : include 'views/reservation/ajout1.view.php';
+case 'ajout1' :
+include 'views/reservation/ajout1.view.php';
 break;
 
 case 'ajout' : $inst->ajout($cnx);
@@ -43,6 +45,8 @@ case 'liste': $res=$inst->liste($cnx);
 	
 	case 'delete': $inst->delete($cnx);
 	break;
-	
+
+
+
 }
 ?>

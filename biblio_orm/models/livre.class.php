@@ -57,6 +57,12 @@ $cnx->exec("delete from livre where Code_Livre='".$this->Code_Livre."'");
 $this->redirect("index.php?controller=livre&action=liste");
 
 }
+
+    public function listStock($cnx){
+        $resultat =$cnx->query("select Stock_livre from livre where Code_Livre='".$this->Code_Livre."'")->fetch(PDO::FETCH_OBJ);
+
+    }
 }
+
 
 ?>
